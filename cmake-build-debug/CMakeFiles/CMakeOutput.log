@@ -1,0 +1,28 @@
+The system is: Darwin - 18.5.0 - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /anaconda3/bin/x86_64-apple-darwin13.4.0-clang 
+Build flags: -march=core2;-mtune=haswell;-mssse3;-ftree-vectorize;-fPIC;-fPIE;-fstack-protector-strong;-O2;-pipe
+Id flags: -c 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
+
+The C compiler identification is Clang, found in "/Users/apple/Desktop/Course/DataStructure_Code/DataStructure/cmake-build-debug/CMakeFiles/3.14.3/CompilerIdC/CMakeCCompilerId.o"
+
+The system is: Darwin - 18.5.0 - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /anaconda3/bin/x86_64-apple-darwin13.4.0-clang 
+Build flags: -march=core2;-mtune=haswell;-mssse3;-ftree-vectorize;-fPIC;-fPIE;-fstack-protector-strong;-O2;-pipe
+Id flags: -c 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
+
+The C compiler identification is Clang, found in "/Users/apple/Desktop/Course/DataStructure_Code/DataStructure/cmake-build-debug/CMakeFiles/3.14.4/CompilerIdC/CMakeCCompilerId.o"
+

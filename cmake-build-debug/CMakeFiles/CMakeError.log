@@ -1,0 +1,62 @@
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /anaconda3/bin/x86_64-apple-darwin13.4.0-clang 
+Build flags: -march=core2;-mtune=haswell;-mssse3;-ftree-vectorize;-fPIC;-fPIE;-fstack-protector-strong;-O2;-pipe
+Id flags:  
+
+The output was:
+1
+ld: warning: ignoring file /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/lib/libSystem.tbd, file was built for unsupported file format ( 0x2D 0x2D 0x2D 0x20 0x21 0x74 0x61 0x70 0x69 0x2D 0x74 0x62 0x64 0x2D 0x76 0x33 ) which is not the architecture being linked (x86_64): /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/lib/libSystem.tbd
+ld: dynamic main executables must link with libSystem.dylib for architecture x86_64
+clang-4.0: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: /Users/apple/Desktop/Course/DataStructure_Code/DataStructure/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/anaconda3/bin/make cmTC_747a6/fast 
+/anaconda3/bin/make -f CMakeFiles/cmTC_747a6.dir/build.make CMakeFiles/cmTC_747a6.dir/build
+make[1]: Entering directory '/Users/apple/Desktop/Course/DataStructure_Code/DataStructure/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_747a6.dir/testCCompiler.c.o
+/anaconda3/bin/x86_64-apple-darwin13.4.0-clang   -march=core2 -mtune=haswell -mssse3 -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk   -o CMakeFiles/cmTC_747a6.dir/testCCompiler.c.o   -c /Users/apple/Desktop/Course/DataStructure_Code/DataStructure/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_747a6
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_link_script CMakeFiles/cmTC_747a6.dir/link.txt --verbose=1
+/anaconda3/bin/x86_64-apple-darwin13.4.0-clang -march=core2 -mtune=haswell -mssse3 -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names -Wl,-pie -Wl,-headerpad_max_install_names -Wl,-dead_strip_dylibs  CMakeFiles/cmTC_747a6.dir/testCCompiler.c.o  -o cmTC_747a6 
+ld: warning: ignoring file /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/lib/libSystem.tbd, file was built for unsupported file format ( 0x2D 0x2D 0x2D 0x20 0x21 0x74 0x61 0x70 0x69 0x2D 0x74 0x62 0x64 0x2D 0x76 0x33 ) which is not the architecture being linked (x86_64): /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/lib/libSystem.tbd
+ld: dynamic main executables must link with libSystem.dylib for architecture x86_64
+clang-4.0: error: linker command failed with exit code 1 (use -v to see invocation)
+make[1]: *** [CMakeFiles/cmTC_747a6.dir/build.make:87: cmTC_747a6] Error 1
+make[1]: Leaving directory '/Users/apple/Desktop/Course/DataStructure_Code/DataStructure/cmake-build-debug/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_747a6/fast] Error 2
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /anaconda3/bin/x86_64-apple-darwin13.4.0-clang 
+Build flags: -march=core2;-mtune=haswell;-mssse3;-ftree-vectorize;-fPIC;-fPIE;-fstack-protector-strong;-O2;-pipe
+Id flags:  
+
+The output was:
+1
+ld: warning: ignoring file /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/lib/libSystem.tbd, file was built for unsupported file format ( 0x2D 0x2D 0x2D 0x20 0x21 0x74 0x61 0x70 0x69 0x2D 0x74 0x62 0x64 0x2D 0x76 0x33 ) which is not the architecture being linked (x86_64): /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/lib/libSystem.tbd
+ld: dynamic main executables must link with libSystem.dylib for architecture x86_64
+clang-4.0: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: /Users/apple/Desktop/Course/DataStructure_Code/DataStructure/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/anaconda3/bin/make cmTC_3e856/fast 
+/anaconda3/bin/make -f CMakeFiles/cmTC_3e856.dir/build.make CMakeFiles/cmTC_3e856.dir/build
+make[1]: Entering directory '/Users/apple/Desktop/Course/DataStructure_Code/DataStructure/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3e856.dir/testCCompiler.c.o
+/anaconda3/bin/x86_64-apple-darwin13.4.0-clang   -march=core2 -mtune=haswell -mssse3 -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk   -o CMakeFiles/cmTC_3e856.dir/testCCompiler.c.o   -c /Users/apple/Desktop/Course/DataStructure_Code/DataStructure/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_3e856
+/Applications/CMake.app/Contents/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3e856.dir/link.txt --verbose=1
+/anaconda3/bin/x86_64-apple-darwin13.4.0-clang -march=core2 -mtune=haswell -mssse3 -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names -Wl,-pie -Wl,-headerpad_max_install_names -Wl,-dead_strip_dylibs  CMakeFiles/cmTC_3e856.dir/testCCompiler.c.o  -o cmTC_3e856 
+ld: warning: ignoring file /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/lib/libSystem.tbd, file was built for unsupported file format ( 0x2D 0x2D 0x2D 0x20 0x21 0x74 0x61 0x70 0x69 0x2D 0x74 0x62 0x64 0x2D 0x76 0x33 ) which is not the architecture being linked (x86_64): /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/lib/libSystem.tbd
+ld: dynamic main executables must link with libSystem.dylib for architecture x86_64
+clang-4.0: error: linker command failed with exit code 1 (use -v to see invocation)
+make[1]: *** [CMakeFiles/cmTC_3e856.dir/build.make:87: cmTC_3e856] Error 1
+make[1]: Leaving directory '/Users/apple/Desktop/Course/DataStructure_Code/DataStructure/cmake-build-debug/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_3e856/fast] Error 2
+
+
