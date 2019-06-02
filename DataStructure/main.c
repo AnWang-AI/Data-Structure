@@ -18,8 +18,9 @@
 
 int main(int argc, const char * argv[]) {
     
+    BST_test();
     //Heap_test();
-    AVL_test();
+    //AVL_test();
     
     return 0;
 }

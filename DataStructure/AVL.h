@@ -15,8 +15,9 @@ typedef struct AVLNode AVLNode;
 
 struct AVLNode{
     int value;
-    AVLNode * left; //左子树
-    AVLNode * right; //右子树
+    AVLNode * left; // 左子树
+    AVLNode * right; // 右子树
+    AVLNode * parent; // 父节点
     int height; // 高度
 };
 

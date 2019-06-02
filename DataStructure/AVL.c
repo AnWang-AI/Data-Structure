@@ -46,6 +46,15 @@ int Max(int a, int b){
     return a>b? a:b;
 }
 
+//AVLNode * connect34(AVLNode * a, AVLNode * b, AVLNode * c,
+//                    AVLNode * T0, AVLNode * T1, AVLNode * T2, AVLNode * T3){
+//    // 3-4重构
+//    
+//    
+//    return b;
+//}
+
+
 AVLNode * zag(AVLNode * A){ // 左旋
     AVLNode * B = A->right;
     A->right = B->left;
@@ -75,6 +84,7 @@ AVLNode * zagzig(AVLNode * A){    //先左旋后右旋
 }
 
 AVLNode * AVL_insert(AVLNode * root, int value){
+    
     if (root == NULL){
         root = creatAVLNode(value);
     }

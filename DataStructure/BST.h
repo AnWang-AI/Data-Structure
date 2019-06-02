@@ -17,6 +17,7 @@ struct treeNode{
     int value;
     treeNode * left;
     treeNode * right;
+    treeNode * parent;
 };
 
 treeNode * creatTreeNode(int value);
@@ -24,8 +25,11 @@ treeNode * creatTreeNode(int value);
 treeNode * tree_search(treeNode * root, int value);
 void tree_print(treeNode * root);
 
-treeNode * BST_insert(treeNode * root, int value);
-treeNode * BST_delete(treeNode * root, int value);
+treeNode * BST_insert_1(treeNode * root, int value);
+treeNode * BST_insert_2(treeNode * root, int value);
+
+treeNode * BST_delete_1(treeNode * root, int x);
+treeNode * BST_delete_2(treeNode * root, int x);
 
 void BST_test(void);
 
