@@ -13,6 +13,7 @@ AVLNode * creatAVLNode(int value){
     AVLNode * Node = (AVLNode*)malloc(sizeof(AVLNode));
     Node->left = NULL;
     Node->right = NULL;
+    Node->parent = NULL;
     Node->value = value;
     Node->height = 0;
     return Node;
@@ -36,8 +37,7 @@ void AVL_print(AVLNode * root){
 int getHeight(AVLNode * tree){
     if (tree == NULL){
         return -1;
-    }
-    else{
+    }else{
         return tree->height;
     }
 }
@@ -46,15 +46,7 @@ int Max(int a, int b){
     return a>b? a:b;
 }
 
-//AVLNode * connect34(AVLNode * a, AVLNode * b, AVLNode * c,
-//                    AVLNode * T0, AVLNode * T1, AVLNode * T2, AVLNode * T3){
-//    // 3-4重构
-//    
-//    
-//    return b;
-//}
-
-
+/* ---    插入方法一     --- */
 AVLNode * zag(AVLNode * A){ // 左旋
     AVLNode * B = A->right;
     A->right = B->left;
@@ -116,6 +108,52 @@ AVLNode * AVL_insert(AVLNode * root, int value){
     
     return root;
 }
+/*---                 ---*/
+
+/*---    插入方法二     ---*/
+AVLNode * connect34(AVLNode * a, AVLNode * b, AVLNode * c,
+                    AVLNode * T0, AVLNode * T1, AVLNode * T2, AVLNode * T3){
+    // 3-4重构
+    
+    a->left = T0; if(T0) T0->parent = a;
+    a->right = T1; if(T1) T1->parent = a;
+    c->left = T2; if(T2) T2->parent = c;
+    c->right = T2; if(T2) T2->parent = c;
+    a->parent = b; b->left = a;
+    c->parent = b; b->right = c;
+    
+    return b;
+}
+
+AVLNode * rotateAt(AVLNode * v){
+    // v 节点  p 父亲  g 爷爷
+    AVLNode * p = v->parent;
+    AVLNode * g = p->parent;
+    if (p == g->right){
+        // p是g的右孩子
+        if (v == g->right){ // zagzag
+            // v是g的右孩子
+            return connect34(g, p, v, g->left, p->left, v->left, v->right);
+        }
+        else{ // zigzag
+            // b是g的左孩子
+            return connect34(g, v, p, g->left, v->left, v->right, p->right);
+        }
+    }
+    else{
+        // p是g的左孩子
+        if (v == g->left){ // zigzig
+            // v是g的左孩子
+            return connect34(v, p, g, v->left, v->right, p->right, g->right);
+        }
+        else{ //zagzig
+            // b是g的左孩子
+            return connect34(p, v, g, p->left, v->left, v->right, g->right);
+        }
+    }
+}
+
+/*---        ---*/
 
 void AVL_test(void){
     AVLNode * AVL = creatAVLNode(1);
