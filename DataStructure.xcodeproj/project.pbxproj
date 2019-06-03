@@ -13,6 +13,7 @@
 		1862C02B229028B60084C774 /* stack.c in Sources */ = {isa = PBXBuildFile; fileRef = 1862C02A229028B60084C774 /* stack.c */; };
 		1862C02E229035820084C774 /* queue.c in Sources */ = {isa = PBXBuildFile; fileRef = 1862C02D229035820084C774 /* queue.c */; };
 		1862C03122903D400084C774 /* linklist.c in Sources */ = {isa = PBXBuildFile; fileRef = 1862C03022903D400084C774 /* linklist.c */; };
+		1871C7D322A50146002C111D /* StringMatch.c in Sources */ = {isa = PBXBuildFile; fileRef = 1871C7D222A50146002C111D /* StringMatch.c */; };
 		18DDFD5D229AB6A5005D5511 /* BST.c in Sources */ = {isa = PBXBuildFile; fileRef = 18DDFD5C229AB6A5005D5511 /* BST.c */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,8 @@
 		1862C02D229035820084C774 /* queue.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = queue.c; sourceTree = "<group>"; };
 		1862C02F22903D400084C774 /* linklist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = linklist.h; sourceTree = "<group>"; };
 		1862C03022903D400084C774 /* linklist.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = linklist.c; sourceTree = "<group>"; };
+		1871C7D122A50146002C111D /* StringMatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringMatch.h; sourceTree = "<group>"; };
+		1871C7D222A50146002C111D /* StringMatch.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = StringMatch.c; sourceTree = "<group>"; };
 		18DDFD5B229AB6A5005D5511 /* BST.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BST.h; sourceTree = "<group>"; };
 		18DDFD5C229AB6A5005D5511 /* BST.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = BST.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +91,8 @@
 				180E1471229E9578002BADF8 /* heap.c */,
 				180E147322A10DE8002BADF8 /* AVL.h */,
 				180E147422A10DE8002BADF8 /* AVL.c */,
+				1871C7D122A50146002C111D /* StringMatch.h */,
+				1871C7D222A50146002C111D /* StringMatch.c */,
 			);
 			path = DataStructure;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 			files = (
 				1862C02E229035820084C774 /* queue.c in Sources */,
 				180E1472229E9578002BADF8 /* heap.c in Sources */,
+				1871C7D322A50146002C111D /* StringMatch.c in Sources */,
 				18DDFD5D229AB6A5005D5511 /* BST.c in Sources */,
 				1862C03122903D400084C774 /* linklist.c in Sources */,
 				1862C02B229028B60084C774 /* stack.c in Sources */,

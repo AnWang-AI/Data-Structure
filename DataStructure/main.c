@@ -14,13 +14,17 @@
 #include "BST.h"
 #include "heap.h"
 #include "AVL.h"
+#include "StringMatch.h"
 
 
 int main(int argc, const char * argv[]) {
     
-    BST_test();
+    //linklist_test();
+    //BST_test();
     //Heap_test();
     //AVL_test();
+    
+    KMP_test();
     
     return 0;
 }

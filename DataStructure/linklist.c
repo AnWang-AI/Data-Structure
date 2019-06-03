@@ -16,6 +16,18 @@ Node * createNode(int value){
     return node;
 }
 
+Node * LinkList_search(Node * head, int value){
+    if (head == NULL){
+        printf("Can't find this node!\n");
+        return NULL;
+    }else if(head->value == value){
+        return head;
+    }else{
+        return LinkList_search(head->next, value);
+    }
+}
+
+
 Node * findNode(Node * head, int loc){
     Node * temp = head;
     for (int i=0;i<=loc;i++){
@@ -121,4 +133,8 @@ void linklist_test(void){
     printf("出队的数： %d\n",LinkList_dequeue(linklist));
     
     LinkList_print(linklist);
+    
+    Node * node = LinkList_search(linklist, 6);
+    printf("%d\n", node->value);
+    
 }

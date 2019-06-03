@@ -20,6 +20,8 @@ struct Node{
 
 Node * createNode(int value);
 
+Node * LinkList_search(Node * head, int value);
+
 void LinkList_insert(Node * head, int value, int loc);
 int LinkList_delete(Node * head, int loc);
 
