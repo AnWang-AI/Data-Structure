@@ -11,6 +11,9 @@
 #include <stdlib.h>
 
 int * buildNext(char * P){
+    // Next表的作用：
+    //    t = Next[j]表示P[0,j）的最大自匹配的真前缀和真后缀的长度
+    //    也就是意味着在匹配失败时，可以快速移动模版串，直到移动后模版串自匹配的真前缀和原先真后缀的位置对齐
     int m = (int)strlen(P); // 字符串长度
     int j = 0; // 串P的指针
     int * Next = (int*)malloc(sizeof(int) * m);
@@ -19,12 +22,21 @@ int * buildNext(char * P){
         if (t == -1 || P[j] == P[t]){ // 如果匹配成功（或前缀指针t指向了-1）
             j++;
             t++;
-            Next[j] = t; //最大自匹配的真前缀和真后缀的长度
+            // 原KMP算法：
+            // Next[j] = t; //最大自匹配的真前缀和真后缀的长度
+            // 改进后：
+            Next[j] = P[j]!=P[t]? t:Next[t];
         }
         else{   // 如果匹配失败
             t = Next[t];
         }
     }
+    
+    for(int i = 0; i<m; i++){
+        printf("%d ",Next[i]);
+    }
+    printf("\n");
+    
     return Next;
 }
 
@@ -47,8 +59,8 @@ int KMP_match(char * T, char * P){
 };
 
 void KMP_test(){
-    char str1[] = "I am so cool";
-    char str2[] = "so";
+    char str1[] = "aaaaabbbb";
+    char str2[] = "baabaa";
     int number = KMP_match(str1, str2);
     printf("%d\n",number);
 }

@@ -31,17 +31,72 @@ treeNode * tree_search(treeNode * root, int value){
     else return root;
 }
 
-void tree_print(treeNode * root){
+void inorder_tree_print(treeNode * root){
     // 中序遍历
     // inorder traversal
     // left-degree-right(LDR)
     if(root != NULL){
         if (root->left != NULL){
-            tree_print(root->left);
+            inorder_tree_print(root->left);
         }
         printf(" %d ",root->value);
         if (root->right!=NULL) {
-            tree_print(root->right);
+            inorder_tree_print(root->right);
+        }
+    }
+}
+
+/*   辅助队列    */
+// 元素为树节点的队列
+typedef struct NodeQueue{
+    treeNode * list;
+    int front;
+    int rear;
+    int size;     //队列中包含元素的个数
+    int length;   //队列总长
+}NodeQueue;
+
+// 创建空队列
+NodeQueue createNodeQueue(int length){
+    NodeQueue queue;
+    queue.list = (treeNode*)malloc(sizeof(treeNode)*length);
+    queue.front = 0;
+    queue.rear = 0;  // 初始条件下，队列为空，front=rear
+    queue.size = 0;
+    queue.length = length;
+    return queue;
+}
+
+// 入队操作
+void enNodeQueue(NodeQueue * queue, treeNode Node){
+    queue->list[queue->rear] = Node;
+    queue->rear = (queue->rear+1) % queue->length;
+    queue->size++;
+}
+
+// 出队操作
+treeNode deNodeQueue(NodeQueue * queue){
+    treeNode result = queue->list[queue->front];
+    queue->front = (queue->front+1) % queue->length;
+    queue->size--;
+    return result;
+}
+/*       */
+
+
+void levelorder_tree_print(treeNode * root){
+    // 层次遍历
+    // leverl order traversal
+    NodeQueue queue = createNodeQueue(100); // 引入辅助队列
+    enNodeQueue(&queue, *root); // 将根节点入队
+    while(queue.size!=0){   // 如果队列不为空
+        treeNode node = deNodeQueue(&queue); // 从队列中取出最早入队的元素
+        printf(" %d", node.value);
+        if(node.left!=NULL){
+            enNodeQueue(&queue, *node.left);    // 左孩子入队
+        }
+        if(node.right!=NULL){
+            enNodeQueue(&queue, *node.right);   //y 右孩子入队
         }
     }
 }
@@ -208,12 +263,12 @@ void BST_test(void){
     BST = BST_insert_2(BST, 4);
     BST = BST_insert_2(BST, 2);
     
-    tree_print(BST);
+    levelorder_tree_print(BST);
     printf("\n");
     
     BST = BST_delete_2(BST, 9);
 
-    tree_print(BST);
+    levelorder_tree_print(BST);
     printf("\n");
 }
 

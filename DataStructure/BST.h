@@ -23,7 +23,8 @@ struct treeNode{
 treeNode * creatTreeNode(int value);
 
 treeNode * tree_search(treeNode * root, int value);
-void tree_print(treeNode * root);
+
+void inorder_tree_print(treeNode * root);
 
 treeNode * BST_insert_1(treeNode * root, int value);
 treeNode * BST_insert_2(treeNode * root, int value);
