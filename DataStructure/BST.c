@@ -8,6 +8,7 @@
 
 #include "BST.h"
 #include <stdlib.h>
+#include "queue.h"
 
 treeNode * creatTreeNode(int value){
     treeNode * Node = (treeNode*)malloc(sizeof(treeNode));
@@ -46,42 +47,6 @@ void inorder_tree_print(treeNode * root){
     }
 }
 
-/*   辅助队列    */
-// 元素为树节点的队列
-typedef struct NodeQueue{
-    treeNode * list;
-    int front;
-    int rear;
-    int size;     //队列中包含元素的个数
-    int length;   //队列总长
-}NodeQueue;
-
-// 创建空队列
-NodeQueue createNodeQueue(int length){
-    NodeQueue queue;
-    queue.list = (treeNode*)malloc(sizeof(treeNode)*length);
-    queue.front = 0;
-    queue.rear = 0;  // 初始条件下，队列为空，front=rear
-    queue.size = 0;
-    queue.length = length;
-    return queue;
-}
-
-// 入队操作
-void enNodeQueue(NodeQueue * queue, treeNode Node){
-    queue->list[queue->rear] = Node;
-    queue->rear = (queue->rear+1) % queue->length;
-    queue->size++;
-}
-
-// 出队操作
-treeNode deNodeQueue(NodeQueue * queue){
-    treeNode result = queue->list[queue->front];
-    queue->front = (queue->front+1) % queue->length;
-    queue->size--;
-    return result;
-}
-/*       */
 
 
 void levelorder_tree_print(treeNode * root){

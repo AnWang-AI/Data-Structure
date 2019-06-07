@@ -12,7 +12,8 @@
 #include <stdio.h>
 
 int KMP_match(char * P, char * T);
-void KMP_test();
+
+void KMP_test(void);
 
     
 #endif /* StringMatch_h */

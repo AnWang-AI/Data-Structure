@@ -27,7 +27,6 @@ Node * LinkList_search(Node * head, int value){
     }
 }
 
-
 Node * findNode(Node * head, int loc){
     Node * temp = head;
     for (int i=0;i<=loc;i++){
