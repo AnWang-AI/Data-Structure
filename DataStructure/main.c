@@ -22,14 +22,14 @@ int main(int argc, const char * argv[]) {
     
     //linklist_test();
     
-    //BST_test();
+    BST_test();
     
     //Heap_test();
     //AVL_test();
     
     //KMP_test();
     
-    graph_test();
+    //graph_test();
     
     
     return 0;

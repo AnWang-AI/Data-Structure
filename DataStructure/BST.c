@@ -67,17 +67,18 @@ void levelorder_tree_print(treeNode * root){
 }
 
 
-treeNode * BST_insert_1(treeNode * root, int value){
-    // 通过递归插入节点，无法设置父节点
+treeNode * BST_insert_1(treeNode * root, int value, treeNode * parent){
+    // 通过递归插入节点,初始时parent参数输入为NULL
     if (root == NULL){
         root = creatTreeNode(value);
+        root->parent = parent;
     }
     else{
         if(value < root->value){
-            root->left = BST_insert_1(root->left, value);
+            root->left = BST_insert_1(root->left, value, root);
         }
         if(value >= root->value){
-            root->right = BST_insert_1(root->right, value);
+            root->right = BST_insert_1(root->right, value, root);
         }
     }
     return root;
@@ -119,14 +120,14 @@ treeNode * findNext(treeNode * Node){
     }
 }
 
-treeNode* BST_delete_1(treeNode* root, int x){
-    // 通过递归删除结点, 不修改父节点
+treeNode* BST_delete_1(treeNode * root, int x){
+    // 通过递归删除结点
     if(root == NULL){
         return root;
     }else if(x < root->value){
-        root->left = BST_delete_1(root->left,x);
+        root->left = BST_delete_1(root->left, x);
     }else if(x > root->value){
-        root->right = BST_delete_1(root->right,x);
+        root->right = BST_delete_1(root->right, x);
     }else{
         if(root->left == NULL && root->right == NULL){//no child
             free(root);
@@ -134,16 +135,18 @@ treeNode* BST_delete_1(treeNode* root, int x){
         }else if(root->left == NULL){//right child only
             treeNode* temp = root;
             root = root->right;
+            root->parent = temp->parent;
             free(temp);
         }else if(root->right == NULL){//left child only
             treeNode* temp = root;
             root = root->left;
+            root->parent = temp->parent;
             free(temp);
         }else{//two children
             treeNode * temp = findNext(root);
             root->value = temp->value;
             //delete the smallest node in right sub-tree, because it has been copied to the node we want to delete initially.
-            root->right = BST_delete_1(root->right,temp->value);
+            root->right = BST_delete_1(root->right, temp->value);
         }
     }
     return root;
@@ -219,21 +222,26 @@ treeNode * BST_delete_2(treeNode * root, int x){
 
 void BST_test(void){
     treeNode * BST = NULL;
-    BST = BST_insert_2(BST, 9);
-    BST = BST_insert_2(BST, 5);
-    BST = BST_insert_2(BST, 3);
-    BST = BST_insert_2(BST, 1);
-    BST = BST_insert_2(BST, 7);
-    BST = BST_insert_2(BST, 8);
-    BST = BST_insert_2(BST, 4);
-    BST = BST_insert_2(BST, 2);
+    BST = BST_insert_1(BST, 9, NULL);
+    BST = BST_insert_1(BST, 5, NULL);
+    BST = BST_insert_1(BST, 3, NULL);
+    BST = BST_insert_1(BST, 1, NULL);
+    BST = BST_insert_1(BST, 7, NULL);
+    BST = BST_insert_1(BST, 8, NULL);
+    BST = BST_insert_1(BST, 4, NULL);
+    BST = BST_insert_1(BST, 2, NULL);
     
-    levelorder_tree_print(BST);
+    inorder_tree_print(BST);
+    //levelorder_tree_print(BST);
     printf("\n");
     
-    BST = BST_delete_2(BST, 9);
+    BST = BST_delete_1(BST, 9);
 
-    levelorder_tree_print(BST);
+    inorder_tree_print(BST);
+    //levelorder_tree_print(BST);
+    printf("\n");
+    
+    printf(" %d ", BST->right->value);
     printf("\n");
 }
 
