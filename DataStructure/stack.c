@@ -8,6 +8,7 @@
 
 #include <stdlib.h>
 #include "stack.h"
+#include "BST.h"
 
 Stack createStack(int length){
     Stack stack;
@@ -37,6 +38,34 @@ void stack_print(Stack stack){
         printf("%d ",stack.list[i]);
     printf("\n");
 }
+
+/**/
+
+treeNodeStack createTreeNodeStack(int length){
+    treeNodeStack stack;
+    stack.list = (treeNode*)malloc(sizeof(treeNode)*length);
+    stack.head = 0;
+    stack.length = length;
+    return stack;
+}
+
+void treeNodePush(treeNode node, treeNodeStack * stack){
+    stack->list[stack->head++] = node;
+}
+
+treeNode treeNodePop(treeNodeStack * stack){
+    return stack->list[--stack->head];
+}
+
+int isTreeNodeStackEmpty(treeNodeStack * stack){
+    if(stack->head==0){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+/**/
+
 
 void stack_test(void){
     Stack stack;

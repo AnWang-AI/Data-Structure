@@ -52,6 +52,7 @@ void LinkList_insert(Node * head, int value, int loc){
     }
 }
 
+
 //指定位置删除节点
 int LinkList_delete(Node * head, int loc){
     Node * temp1 = findNode(head, loc-1);
@@ -117,23 +118,26 @@ void LinkList_print(Node * head){
 }
 
 void linklist_test(void){
-    Node * linklist = createNode(0);    //头节点记录链表的长度
-    LinkList_insert(linklist, 2, 0);
-    LinkList_insert(linklist, 3, 1);
-    LinkList_insert(linklist, 4, 2);
-    LinkList_insert(linklist, 5, 0);
-    LinkList_delete(linklist, 2);
-    LinkList_push(linklist, 8);
-    LinkList_push(linklist, 9);
-    printf("出栈的数： %d\n",LinkList_pop(linklist));
-    LinkList_enqueue(linklist, 3);
-    LinkList_enqueue(linklist, 6);
-    LinkList_enqueue(linklist, 7);
-    printf("出队的数： %d\n",LinkList_dequeue(linklist));
+//    Node * linklist = createNode(0);    //头节点记录链表的长度
+//    LinkList_insert(linklist, 2, 0);
+//    LinkList_insert(linklist, 3, 1);
+//    LinkList_insert(linklist, 4, 2);
+//    LinkList_insert(linklist, 5, 0);
+//    LinkList_delete(linklist, 2);
+//    LinkList_push(linklist, 8);
+//    LinkList_push(linklist, 9);
+//    printf("出栈的数： %d\n",LinkList_pop(linklist));
+//    LinkList_enqueue(linklist, 3);
+//    LinkList_enqueue(linklist, 6);
+//    LinkList_enqueue(linklist, 7);
+//    printf("出队的数： %d\n",LinkList_dequeue(linklist));
+//
+//    LinkList_print(linklist);
+//
+//    Node * node = LinkList_search(linklist, 6);
+//    printf("%d\n", node->value);
     
-    LinkList_print(linklist);
-    
-    Node * node = LinkList_search(linklist, 6);
-    printf("%d\n", node->value);
+
+
     
 }

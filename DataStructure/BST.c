@@ -9,6 +9,7 @@
 #include "BST.h"
 #include <stdlib.h>
 #include "queue.h"
+#include "stack.h"
 
 treeNode * creatTreeNode(int value){
     treeNode * Node = (treeNode*)malloc(sizeof(treeNode));
@@ -33,7 +34,7 @@ treeNode * tree_search(treeNode * root, int value){
 }
 
 void inorder_tree_print(treeNode * root){
-    // 中序遍历
+    // 中序遍历 （递归方式）
     // inorder traversal
     // left-degree-right(LDR)
     if(root != NULL){
@@ -43,6 +44,27 @@ void inorder_tree_print(treeNode * root){
         printf(" %d ",root->value);
         if (root->right!=NULL) {
             inorder_tree_print(root->right);
+        }
+    }
+}
+
+void inorder_tree_print2(treeNode * root){
+    // 中序遍历 (非递归方式)
+    // inorder traversal
+    // left-degree-right(LDR)
+    treeNodeStack stack = createTreeNodeStack(100);
+    treeNodePush(*root, &stack);
+    treeNode * temp = root;
+    while(isTreeNodeStackEmpty(&stack)==0){
+        while(temp->left!=NULL){
+            temp = temp->left;
+            treeNodePush(*temp, &stack);
+        }
+        *temp = treeNodePop(&stack);
+        printf(" %d ", temp->value);
+        if(temp->right!=NULL){
+            temp = temp->right;
+            treeNodePush(*temp, &stack);
         }
     }
 }
@@ -222,26 +244,29 @@ treeNode * BST_delete_2(treeNode * root, int x){
 
 void BST_test(void){
     treeNode * BST = NULL;
-    BST = BST_insert_1(BST, 9, NULL);
-    BST = BST_insert_1(BST, 5, NULL);
-    BST = BST_insert_1(BST, 3, NULL);
-    BST = BST_insert_1(BST, 1, NULL);
-    BST = BST_insert_1(BST, 7, NULL);
-    BST = BST_insert_1(BST, 8, NULL);
-    BST = BST_insert_1(BST, 4, NULL);
-    BST = BST_insert_1(BST, 2, NULL);
-    
-    inorder_tree_print(BST);
-    //levelorder_tree_print(BST);
-    printf("\n");
-    
-    BST = BST_delete_1(BST, 9);
+    BST = BST_insert_2(BST, 9);
+    BST = BST_insert_2(BST, 5);
+    BST = BST_insert_2(BST, 3);
+    BST = BST_insert_2(BST, 1);
+    BST = BST_insert_2(BST, 7);
+    BST = BST_insert_2(BST, 4);
+    BST = BST_insert_2(BST, 2);
+    BST = BST_insert_2(BST, 11);
 
+
+    
+    
     inorder_tree_print(BST);
     //levelorder_tree_print(BST);
     printf("\n");
     
-    printf(" %d ", BST->right->value);
+//    BST = BST_delete_1(BST, 9);
+
+    inorder_tree_print2(BST);
+    //levelorder_tree_print(BST);
+    printf("\n");
+    
+//    printf(" %d ", BST->right->value);
     printf("\n");
 }
 

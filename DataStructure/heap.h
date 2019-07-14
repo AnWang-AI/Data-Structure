@@ -18,9 +18,7 @@ struct Heap{
     int size; //堆的大小
 };
 
-void heapify(Heap * heap, int index);
 
-Heap * bulid_heap(int * data, int size);
 
 void heap_insert(Heap * heap, int value);
 int heap_delete(Heap * heap, int value);

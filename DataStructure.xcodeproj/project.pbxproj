@@ -14,6 +14,7 @@
 		1862C02E229035820084C774 /* queue.c in Sources */ = {isa = PBXBuildFile; fileRef = 1862C02D229035820084C774 /* queue.c */; };
 		1862C03122903D400084C774 /* linklist.c in Sources */ = {isa = PBXBuildFile; fileRef = 1862C03022903D400084C774 /* linklist.c */; };
 		1871C7D322A50146002C111D /* StringMatch.c in Sources */ = {isa = PBXBuildFile; fileRef = 1871C7D222A50146002C111D /* StringMatch.c */; };
+		187581EC22D49494007ED9EA /* sort.c in Sources */ = {isa = PBXBuildFile; fileRef = 187581EB22D49494007ED9EA /* sort.c */; };
 		188BCEBB22A6902A008FE368 /* graph.c in Sources */ = {isa = PBXBuildFile; fileRef = 188BCEBA22A6902A008FE368 /* graph.c */; };
 		18DDFD5D229AB6A5005D5511 /* BST.c in Sources */ = {isa = PBXBuildFile; fileRef = 18DDFD5C229AB6A5005D5511 /* BST.c */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,8 @@
 		1862C03022903D400084C774 /* linklist.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = linklist.c; sourceTree = "<group>"; };
 		1871C7D122A50146002C111D /* StringMatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringMatch.h; sourceTree = "<group>"; };
 		1871C7D222A50146002C111D /* StringMatch.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = StringMatch.c; sourceTree = "<group>"; };
+		187581EA22D49494007ED9EA /* sort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sort.h; sourceTree = "<group>"; };
+		187581EB22D49494007ED9EA /* sort.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = sort.c; sourceTree = "<group>"; };
 		188BCEB922A6902A008FE368 /* graph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = graph.h; sourceTree = "<group>"; };
 		188BCEBA22A6902A008FE368 /* graph.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = graph.c; sourceTree = "<group>"; };
 		18DDFD5B229AB6A5005D5511 /* BST.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BST.h; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 				1871C7D222A50146002C111D /* StringMatch.c */,
 				188BCEB922A6902A008FE368 /* graph.h */,
 				188BCEBA22A6902A008FE368 /* graph.c */,
+				187581EA22D49494007ED9EA /* sort.h */,
+				187581EB22D49494007ED9EA /* sort.c */,
 			);
 			path = DataStructure;
 			sourceTree = "<group>";
@@ -163,6 +168,7 @@
 				1871C7D322A50146002C111D /* StringMatch.c in Sources */,
 				18DDFD5D229AB6A5005D5511 /* BST.c in Sources */,
 				1862C03122903D400084C774 /* linklist.c in Sources */,
+				187581EC22D49494007ED9EA /* sort.c in Sources */,
 				1862C02B229028B60084C774 /* stack.c in Sources */,
 				188BCEBB22A6902A008FE368 /* graph.c in Sources */,
 				1862C023229028A50084C774 /* main.c in Sources */,
