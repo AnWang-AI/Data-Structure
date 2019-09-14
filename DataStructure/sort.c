@@ -34,9 +34,11 @@ void bubbleSort(int * a, int n){
 
 /***    快速排序   ***/
 
+// 考研版本
 int partition1(int * a, int low, int high){
-    // 选择一个pivot，将待划分的部分数组中小于pivot的数放在左边，大于等于pivot的数放在右边
-    // 最后，pivot放在之间的位置，返回pivot的位置
+    // 挖坑法
+    // 从两边分别不断往中间查看（先右后左），若右边有小于pivot的数，则移到左边，再看若左边有pivot的数，则移到右边
+    // 最后，当查看到中间只有一个单元时，将pivot放在这个位置，并返回pivot的位置
     int pivot = a[low];
     while (low<high){
         while (a[high]>=pivot)
@@ -66,6 +68,8 @@ int partition2(int * a, int low, int high){
     a[i-1] = pivot;
     return i-1;
 }
+
+// （算法导论版本）
 
 int partition3(int * a, int low, int high){
     int pivot = a[high];
@@ -97,38 +101,77 @@ int partition4(int *a, int low, int high){
     return i;
 }
 
-int partition5(int *a, int low, int high){
-    while(low<high){
-        int pivot = a[low];
-        while(a[low]<pivot) low++;
-        while(a[high]>pivot) high--;
-        if(low>=high) break;
-        int temp = a[low]; a[low] = a[high]; a[high] = temp;
-        low++; high--;
-    }
-    return low;
-}
 
-void quickSort(int * a, int low, int high){
+void quickSort1(int * a, int low, int high){
     if (low<high){
         int pivotposition = partition4(a, low, high);
+        
 //        for (int i=0; i<12; i++){
 //            printf(" %d ", a[i]);
 //        }
 //        printf("\n");
-        quickSort(a, low, pivotposition-1);
-        quickSort(a, pivotposition+1, high);
+        
+        quickSort1(a, low, pivotposition-1);
+        quickSort1(a, pivotposition+1, high);
     }
 }
+
+// 快排（日本考试常见版本）：非常容易写错
+
 void quickSort2(int * a, int low, int high){
+    int i = low, j = high;
+    int pivot = a[low];
+    while(i<j){
+        while(a[i]<pivot) i++;
+        while(a[j]>pivot) j--;
+        if(i>j) break;
+        int temp = a[i]; a[i] = a[j]; a[j] = temp;
+        i++; j--;
+    }
+    
+    printf("pivot:%d low: %d, high: %d\n",pivot, low, high);
+    printf("i: %d, j: %d\n", i, j);
+    for (int i=low; i<=high; i++){
+        printf(" %d ", a[i]);
+    }
+    printf("\n");
+    
+    if (low < i-1)
+        quickSort2(a, low, j);
+    if (high > j+1)
+        quickSort2(a, i, high);
+}
+
+// 换种方式写quicksort2
+
+int partition5(int * a, int low, int high){
+    int i = low, j = high;
+    int pivot = a[low];
+    while(i<j){
+        while(a[i]<pivot) i++;
+        while(a[j]>pivot) j--;
+        if(i>j) break;
+        int temp = a[i]; a[i] = a[j]; a[j] = temp;
+        i++; j--;
+    }
+    // 结束循环的情况有三种，第一种是i=j时，a[i]=pivot,那么j会移动到low-1的位置，i会移动到low+1的位置
+    // 第二种是刚好换完时，i=j，此时循环退出，但并不知道a[i]与pivot之间的大小关系
+    // 第三种是刚好换完时，i=j-1，此时a[i]>pivot,a[j]<pivot
+    if(a[i]>pivot)
+        return i-1;
+    else
+        return i;
+}
+
+void quickSort3(int * a, int low, int high){
     if (low<high){
         int pivotposition = partition5(a, low, high);
-        //        for (int i=0; i<12; i++){
-        //            printf(" %d ", a[i]);
-        //        }
-        //        printf("\n");
-        quickSort(a, low, pivotposition-1);
-        quickSort(a, pivotposition, high);
+        for (int i=low; i<=high; i++){
+            printf(" %d ", a[i]);
+        }
+        printf("\n");
+        quickSort1(a, low, pivotposition);
+        quickSort1(a, pivotposition+1, high);
     }
 }
 
@@ -146,6 +189,41 @@ void selectSort(int * a, int n){
             int temp = a[max];
             a[max] = a[i];
             a[i] = temp;
+        }
+    }
+}
+
+/***   插入排序   ***/
+ 
+void insertSort(int* a, int n){
+    int i,j;
+    for(i=1;i<n;i++){
+        int temp = a[i];
+        for(j=i-1;j>=0;j--){
+            if(a[j] > temp){
+                a[j+1] = a[j];
+            }else{
+                break;
+            }
+        }
+        a[j+1] = temp;
+    }
+}
+
+
+/***   希尔排序   ***/
+
+void shellSort(int* a, int n){
+    int i,j;
+    int gap;
+    int temp;
+    for(gap = n>>1; gap>0; gap>>=1){
+        for(i=gap;i<n;i++){
+            temp = a[i];
+            for(j=i-gap;j>=0&&a[j]>temp;j-=gap){
+                a[j+gap] = a[j];
+            }
+            a[j+gap] = temp;
         }
     }
 }
@@ -193,11 +271,11 @@ void mergeSort(int * a, int left, int right){
 /***    排序测试   ***/
 
 void sorttest(){
-    int a[] = {3, 4, 6, 9, 10, 11, 6, 9, 1, 2, 13, 14};
+    int a[] = {3, 4, 6, 9, 10, 11, 6, 9, 13, 1, 5, 7};
     int n = 12;
-//    int a[] = {2,3,0,1,6,7,4,5};
+//    int a[] = {3,5,1,2,6,9,8,7};
 //    int n = 8;
-    quickSort(a, 0, n-1);
+    insertSort(a, n);
     for (int i=0; i<n; i++){
         printf(" %d ", a[i]);
     }

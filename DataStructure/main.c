@@ -36,7 +36,9 @@ int main(int argc, const char * argv[]) {
     
     sorttest();
     
-    
-    
+//    int a[10];
+//
+//    printf("%d\n",a[2]);
+//
     return 0;
 }
