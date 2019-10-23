@@ -17,6 +17,7 @@
 #include "StringMatch.h"
 #include "graph.h"
 #include "sort.h"
+#include "sqlist.h"
 
 
 
@@ -34,11 +35,14 @@ int main(int argc, const char * argv[]) {
 //
 //    graph_test();
     
-    sorttest();
+//    sorttest();
     
 //    int a[10];
-//
+//a
 //    printf("%d\n",a[2]);
 //
+    sqListTest();
+    
+    
     return 0;
 }

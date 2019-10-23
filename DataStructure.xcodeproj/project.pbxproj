@@ -17,6 +17,7 @@
 		187581EC22D49494007ED9EA /* sort.c in Sources */ = {isa = PBXBuildFile; fileRef = 187581EB22D49494007ED9EA /* sort.c */; };
 		188BCEBB22A6902A008FE368 /* graph.c in Sources */ = {isa = PBXBuildFile; fileRef = 188BCEBA22A6902A008FE368 /* graph.c */; };
 		18DDFD5D229AB6A5005D5511 /* BST.c in Sources */ = {isa = PBXBuildFile; fileRef = 18DDFD5C229AB6A5005D5511 /* BST.c */; };
+		18EB41212360864A00544CF1 /* sqlist.c in Sources */ = {isa = PBXBuildFile; fileRef = 18EB41202360864A00544CF1 /* sqlist.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +53,8 @@
 		188BCEBA22A6902A008FE368 /* graph.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = graph.c; sourceTree = "<group>"; };
 		18DDFD5B229AB6A5005D5511 /* BST.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BST.h; sourceTree = "<group>"; };
 		18DDFD5C229AB6A5005D5511 /* BST.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = BST.c; sourceTree = "<group>"; };
+		18EB411F2360864A00544CF1 /* sqlist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sqlist.h; sourceTree = "<group>"; };
+		18EB41202360864A00544CF1 /* sqlist.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = sqlist.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,8 @@
 				188BCEBA22A6902A008FE368 /* graph.c */,
 				187581EA22D49494007ED9EA /* sort.h */,
 				187581EB22D49494007ED9EA /* sort.c */,
+				18EB411F2360864A00544CF1 /* sqlist.h */,
+				18EB41202360864A00544CF1 /* sqlist.c */,
 			);
 			path = DataStructure;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1862C02E229035820084C774 /* queue.c in Sources */,
+				18EB41212360864A00544CF1 /* sqlist.c in Sources */,
 				180E1472229E9578002BADF8 /* heap.c in Sources */,
 				1871C7D322A50146002C111D /* StringMatch.c in Sources */,
 				18DDFD5D229AB6A5005D5511 /* BST.c in Sources */,

@@ -106,11 +106,6 @@ void quickSort1(int * a, int low, int high){
     if (low<high){
         int pivotposition = partition4(a, low, high);
         
-//        for (int i=0; i<12; i++){
-//            printf(" %d ", a[i]);
-//        }
-//        printf("\n");
-        
         quickSort1(a, low, pivotposition-1);
         quickSort1(a, pivotposition+1, high);
     }
@@ -154,14 +149,16 @@ int partition5(int * a, int low, int high){
         int temp = a[i]; a[i] = a[j]; a[j] = temp;
         i++; j--;
     }
-    // 结束循环的情况有三种，第一种是i=j时，a[i]=pivot,那么j会移动到low-1的位置，i会移动到low+1的位置
+    // 结束循环的情况有三种，第一种是i=j时，a[i]=pivot,那么j会移动到i-1的位置，i会移动到i+1的位置
     // 第二种是刚好换完时，i=j，此时循环退出，但并不知道a[i]与pivot之间的大小关系
-    // 第三种是刚好换完时，i=j-1，此时a[i]>pivot,a[j]<pivot
+    // 第三种是刚好换完时，i=j-1，此时a[i]>=pivot,a[j]<=pivot
     if(a[i]>pivot)
         return i-1;
     else
         return i;
 }
+
+
 
 void quickSort3(int * a, int low, int high){
     if (low<high){
@@ -271,11 +268,12 @@ void mergeSort(int * a, int left, int right){
 /***    排序测试   ***/
 
 void sorttest(){
-    int a[] = {3, 4, 6, 9, 10, 11, 6, 9, 13, 1, 5, 7};
+    int a[] = {3, 4, 6, 9, 11, 10, 6, 9, 13, 1, 5, 7};
+
     int n = 12;
 //    int a[] = {3,5,1,2,6,9,8,7};
 //    int n = 8;
-    insertSort(a, n);
+    quickSort2(a, 0, n-1);
     for (int i=0; i<n; i++){
         printf(" %d ", a[i]);
     }
