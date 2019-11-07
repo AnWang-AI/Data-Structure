@@ -133,14 +133,20 @@ treeNode * BST_insert_2(treeNode * root, int value){
     return root;
 }
 
+
 treeNode * findNext(treeNode * Node){
-    //寻找指定节点在中序遍历的下一个节点，也就是右子树的最小值
-    if(Node->left == NULL)
-        return Node;
-    else {
-        return findNext(Node->right);
+    //(在有右子树的情况)寻找指定节点在中序遍历的下一个节点，也就是右子树的最小值
+    if (Node->right!=NULL){
+        treeNode * tmp = Node->right;
+        if(tmp->left!=NULL){
+            tmp = tmp->left;
+        }
+        return tmp;
+    }else{
+        return NULL;
     }
 }
+
 
 treeNode* BST_delete_1(treeNode * root, int x){
     // 通过递归删除结点
@@ -244,27 +250,29 @@ treeNode * BST_delete_2(treeNode * root, int x){
 
 void BST_test(void){
     treeNode * BST = NULL;
-    BST = BST_insert_2(BST, 9);
-    BST = BST_insert_2(BST, 5);
-    BST = BST_insert_2(BST, 3);
+    BST = BST_insert_1(BST, 7, NULL);
+    BST = BST_insert_1(BST, 3, NULL);
+    BST = BST_insert_1(BST, 9, NULL);
     BST = BST_insert_2(BST, 1);
-    BST = BST_insert_2(BST, 7);
+    BST = BST_insert_2(BST, 5);
     BST = BST_insert_2(BST, 4);
-    BST = BST_insert_2(BST, 2);
-    BST = BST_insert_2(BST, 11);
-
-
+    BST = BST_insert_2(BST, 8);
+    BST = BST_insert_2(BST, 10);
     
     
     inorder_tree_print(BST);
     //levelorder_tree_print(BST);
     printf("\n");
     
+    treeNode * tmp1 = tree_search(BST, 9);
+    treeNode * tmp2 = findNext(tmp1);
+    printf("%d", tmp2->value);
+        
 //    BST = BST_delete_1(BST, 9);
-
-    inorder_tree_print2(BST);
+    
+//    inorder_tree_print2(BST);
     //levelorder_tree_print(BST);
-    printf("\n");
+//    printf("\n");
     
 //    printf(" %d ", BST->right->value);
     printf("\n");

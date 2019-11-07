@@ -26,7 +26,7 @@ int main(int argc, const char * argv[]) {
     
 //    linklist_test();
 //
-//    BST_test();
+    BST_test();
 //
 //    Heap_test();
 //    AVL_test();
@@ -38,10 +38,10 @@ int main(int argc, const char * argv[]) {
 //    sorttest();
     
 //    int a[10];
-//a
+//
 //    printf("%d\n",a[2]);
 //
-    sqListTest();
+//    sqListTest();
     
     
     return 0;
