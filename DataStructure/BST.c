@@ -181,7 +181,7 @@ treeNode* BST_delete_1(treeNode * root, int x){
 }
 
 treeNode * BST_delete_2(treeNode * root, int x){
-    // 通过while循环删除结点，修改父节点
+    // 先用search函数搜索到待删除结点，再删除结点，修改父节点
     if(root == NULL){
         printf("This three is empty!\n");
         return root;
