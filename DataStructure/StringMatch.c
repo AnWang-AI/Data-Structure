@@ -7,7 +7,7 @@
 //
 
 #include "StringMatch.h"
-#include <String.h>
+#include <string.h>
 #include <stdlib.h>
 
 int * buildNext(char * P){

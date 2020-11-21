@@ -18,21 +18,6 @@ struct Node{
     Node* next;
 };
 
-Node * createNode(int value);
-
-Node * LinkList_search(Node * head, int value);
-
-void LinkList_insert(Node * head, int value, int loc);
-int LinkList_delete(Node * head, int loc);
-
-void LinkList_push(Node * head, int value);
-int LinkList_pop(Node * head);
-
-void LinkList_enqueue(Node * head, int value);
-int LinkList_dequeue(Node * head);
-
-void LinkList_print(Node * head);
-
 void linklist_test(void);
 
 #endif /* linklist_h */

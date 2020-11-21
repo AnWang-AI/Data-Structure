@@ -41,33 +41,33 @@ void inorder_tree_print(treeNode * root){
         if (root->left != NULL){
             inorder_tree_print(root->left);
         }
-        printf(" %d ",root->value);
+        printf("%d ",root->value);
         if (root->right!=NULL) {
             inorder_tree_print(root->right);
         }
     }
 }
 
-void inorder_tree_print2(treeNode * root){
-    // 中序遍历 (非递归方式)
-    // inorder traversal
-    // left-degree-right(LDR)
-    treeNodeStack stack = createTreeNodeStack(100);
-    treeNodePush(*root, &stack);
-    treeNode * temp = root;
-    while(isTreeNodeStackEmpty(&stack)==0){
-        while(temp->left!=NULL){
-            temp = temp->left;
-            treeNodePush(*temp, &stack);
-        }
-        *temp = treeNodePop(&stack);
-        printf(" %d ", temp->value);
-        if(temp->right!=NULL){
-            temp = temp->right;
-            treeNodePush(*temp, &stack);
-        }
-    }
-}
+//void inorder_tree_print2(treeNode * root){
+//    // 中序遍历 (非递归方式)
+//    // inorder traversal
+//    // left-degree-right(LDR)
+//    treeNodeStack stack = createTreeNodeStack(100);
+//    treeNodePush(*root, &stack);
+//    treeNode * temp = root;
+//    while(isTreeNodeStackEmpty(&stack)==0){
+//        while(temp->left!=NULL){
+//            temp = temp->left;
+//            treeNodePush(*temp, &stack);
+//        }
+//        *temp = treeNodePop(&stack);
+//        printf(" %d ", temp->value);
+//        if(temp->right!=NULL){
+//            temp = temp->right;
+//            treeNodePush(*temp, &stack);
+//        }
+//    }
+//}
 
 
 
@@ -78,7 +78,7 @@ void levelorder_tree_print(treeNode * root){
     enNodeQueue(&queue, *root); // 将根节点入队
     while(queue.size!=0){   // 如果队列不为空
         treeNode node = deNodeQueue(&queue); // 从队列中取出最早入队的元素
-        printf(" %d", node.value);
+        printf("%d ", node.value);
         if(node.left!=NULL){
             enNodeQueue(&queue, *node.left);    // 左孩子入队
         }
@@ -90,7 +90,7 @@ void levelorder_tree_print(treeNode * root){
 
 
 treeNode * BST_insert_1(treeNode * root, int value, treeNode * parent){
-    // 通过递归插入节点,初始时parent参数输入为NULL
+    // 通过递归插入节点,初始时parent参数输入应为NULL
     if (root == NULL){
         root = creatTreeNode(value);
         root->parent = parent;
@@ -138,7 +138,7 @@ treeNode * findNext(treeNode * Node){
     //(在有右子树的情况)寻找指定节点在中序遍历的下一个节点，也就是右子树的最小值
     if (Node->right!=NULL){
         treeNode * tmp = Node->right;
-        if(tmp->left!=NULL){
+        while(tmp->left!=NULL){
             tmp = tmp->left;
         }
         return tmp;
@@ -254,28 +254,29 @@ void BST_test(void){
     BST = BST_insert_1(BST, 3, NULL);
     BST = BST_insert_1(BST, 9, NULL);
     BST = BST_insert_2(BST, 1);
-    BST = BST_insert_2(BST, 5);
-    BST = BST_insert_2(BST, 4);
+    BST = BST_insert_2(BST, 6);
     BST = BST_insert_2(BST, 8);
     BST = BST_insert_2(BST, 10);
-    
+    BST = BST_insert_2(BST, 5);
+    BST = BST_insert_2(BST, 4);
+
     
     inorder_tree_print(BST);
-    //levelorder_tree_print(BST);
+    printf("\n");
+    levelorder_tree_print(BST);
     printf("\n");
     
-    treeNode * tmp1 = tree_search(BST, 9);
+    treeNode * tmp1 = tree_search(BST, 3);
     treeNode * tmp2 = findNext(tmp1);
-    printf("%d", tmp2->value);
+    printf("%d\n", tmp2->value);
         
-//    BST = BST_delete_1(BST, 9);
+    BST = BST_delete_1(BST, 4);
     
-//    inorder_tree_print2(BST);
-    //levelorder_tree_print(BST);
-//    printf("\n");
-    
-//    printf(" %d ", BST->right->value);
+    inorder_tree_print(BST);
     printf("\n");
+    levelorder_tree_print(BST);
+    printf("\n");
+    
 }
 
 

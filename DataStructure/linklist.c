@@ -118,12 +118,14 @@ void LinkList_print(Node * head){
 }
 
 void linklist_test(void){
-//    Node * linklist = createNode(0);    //头节点记录链表的长度
-//    LinkList_insert(linklist, 2, 0);
-//    LinkList_insert(linklist, 3, 1);
-//    LinkList_insert(linklist, 4, 2);
-//    LinkList_insert(linklist, 5, 0);
-//    LinkList_delete(linklist, 2);
+    Node * linklist = createNode(0);    //头节点记录链表的长度
+    LinkList_insert(linklist, 2, 0);
+    LinkList_insert(linklist, 3, 1);
+    LinkList_insert(linklist, 4, 2);
+    
+    
+    LinkList_insert(linklist, 5, 0);
+    LinkList_delete(linklist, 2);
 //    LinkList_push(linklist, 8);
 //    LinkList_push(linklist, 9);
 //    printf("出栈的数： %d\n",LinkList_pop(linklist));

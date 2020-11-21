@@ -23,7 +23,10 @@
 
 int main(int argc, const char * argv[]) {
     
+//    printf("hello world\n");
     
+//    sqListTest();
+
 //    linklist_test();
 //
     BST_test();
@@ -36,10 +39,5 @@ int main(int argc, const char * argv[]) {
 //    graph_test();
     
 //    sorttest();
-    
-//
-//    sqListTest();
-    
-    
-    return 0;
+        
 }
