@@ -208,6 +208,32 @@ void insertSort(int* a, int n){
 }
 
 
+/**  插入排序（二分）   ***/
+
+void bi_insertSort(int* a, int n){
+    int i;
+    for(i=1;i<n;i++){
+        int k = a[i];
+        int low = 0;
+        int high = i - 1;
+        while(low<=high){
+            int mid = (low+high)/2;
+            if (a[mid]>k) {
+                high = mid-1;
+            }
+            else{
+                low = mid + 1;
+            }
+
+        }
+        for (int p = i; p > low; p--){
+            a[p] = a[p-1];
+        }
+        a[low] = k;
+    }
+}
+
+
 /***   希尔排序   ***/
 
 void shellSort(int* a, int n){
@@ -269,13 +295,18 @@ void mergeSort(int * a, int left, int right){
 
 void sorttest(){
     int a[] = {3, 4, 6, 9, 11, 10, 6, 9, 13, 1, 5, 7};
-
+    
     int n = 12;
-//    int a[] = {3,5,1,2,6,9,8,7};
-//    int n = 8;
-    quickSort2(a, 0, n-1);
+    
     for (int i=0; i<n; i++){
-        printf(" %d ", a[i]);
+        printf("%d ", a[i]);
+    }
+    printf("\n");
+    
+    bi_insertSort(a, n);
+    
+    for (int i=0; i<n; i++){
+        printf("%d ", a[i]);
     }
     printf("\n");
     

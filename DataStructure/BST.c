@@ -163,6 +163,7 @@ treeNode* BST_delete_1(treeNode * root, int x){
         }else if(root->left == NULL){//right child only
             treeNode* temp = root;
             root = root->right;
+            
             root->parent = temp->parent;
             free(temp);
         }else if(root->right == NULL){//left child only
@@ -270,7 +271,7 @@ void BST_test(void){
     treeNode * tmp2 = findNext(tmp1);
     printf("%d\n", tmp2->value);
         
-    BST = BST_delete_1(BST, 4);
+    BST = BST_delete_1(BST, 6);
     
     inorder_tree_print(BST);
     printf("\n");

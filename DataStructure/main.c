@@ -29,7 +29,7 @@ int main(int argc, const char * argv[]) {
 
 //    linklist_test();
 //
-    BST_test();
+//    BST_test();
 //
 //    Heap_test();
 //    AVL_test();
@@ -38,6 +38,6 @@ int main(int argc, const char * argv[]) {
 //
 //    graph_test();
     
-//    sorttest();
+    sorttest();
         
 }
